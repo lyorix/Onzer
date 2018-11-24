@@ -14,11 +14,6 @@ export class UserPlaylistsDataService {
   constructor(private http: HttpClient) {
   }
 
-  /**
-   * Get the patients list for a given ward
-   * @param wardId - the ward id
-   * @returns {Observable<Array<Patient>>} a patients list
-   */
   public getUserPlaylists(userId: number): Observable<Array<Playlist>> {
       return this.http.get(UserPlaylistsDataService.USER_PLAYLISTS_URL.replace('{userId}', '' + userId))
           .pipe(map((response: any) => response.data))

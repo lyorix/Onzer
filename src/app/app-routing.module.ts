@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
+  {path: '', redirectTo: '/playlists', pathMatch: 'full'},
   {path: 'playlists', loadChildren: './modules/playlists/playlists.module#PlaylistsModule'},
   {path: 'playlist/:id', loadChildren: './modules/playlist/playlist.module#PlaylistModule'}
 ];

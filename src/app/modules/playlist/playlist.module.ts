@@ -7,6 +7,7 @@ import { PlaylistDetailLineComponent } from './components/playlist-detail-line/p
 import { PlaylistRoutingModule } from './playlist-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { PlaylistInformationDataService } from './services/playlist-information-data.service';
 
 @NgModule({
   declarations: [PlaylistHeaderComponent, PlaylistViewComponent, PlaylistDetailComponent, PlaylistDetailLineComponent],
@@ -15,6 +16,9 @@ import { FormsModule } from '@angular/forms';
     PlaylistRoutingModule, 
     HttpClientModule,
     FormsModule
+  ],
+  providers: [
+    PlaylistInformationDataService
   ]
 })
 export class PlaylistModule { }

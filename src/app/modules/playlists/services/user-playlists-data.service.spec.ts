@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { UserPlaylistsDataService } from './user-playlists.data.service';
+import { UserPlaylistsDataService } from './user-playlists-data.service';
 
 describe('UserPlaylistsService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
