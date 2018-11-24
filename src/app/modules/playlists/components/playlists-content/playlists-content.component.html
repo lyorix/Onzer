@@ -1,0 +1,5 @@
+<div class="wrapper" *ngIf="playlists">
+  <div *ngFor="let playlist of playlists;">
+      <ozr-playlist-card [playlist]="playlist" (click)="selectPlaylist(playlist)"></ozr-playlist-card>
+  </div>
+</div>

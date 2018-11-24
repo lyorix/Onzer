@@ -1,0 +1,11 @@
+{
+    "/deezer/*": {
+        "target": "https://api.deezer.com",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/deezer": ""
+        }
+    }
+}
