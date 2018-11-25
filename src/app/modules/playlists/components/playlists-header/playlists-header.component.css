@@ -1,0 +1,6 @@
+.plsts-header {
+    padding: 15px 15px 15px 15px;
+    height: 20px;
+    font-weight: bold;
+    box-shadow: var(--box-shadow);
+}

@@ -26,7 +26,7 @@ export class PlaylistInformationDataService {
         title: playlistData.title,
         duration: playlistData.duration * 1000,
         author: playlistData.creator.name,
-        cover: playlistData.picture
+        cover: playlistData.picture_medium
       };
       if (playlistData.tracks) {
         playlist.tracks = new Array<Track>();

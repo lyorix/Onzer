@@ -1,7 +1,11 @@
+.plsts-content {
+    height: calc(100% - 50px);
+    overflow-y: auto;
+}
+
 .plsts-content___playlists {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 15px;
-    background-color: #fff;
-    color: #444;
+    color: var(--test-dark, black);
 }

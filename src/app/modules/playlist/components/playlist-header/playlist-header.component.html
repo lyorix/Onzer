@@ -1,4 +1,10 @@
-<h1>
-  <button (click)="back()">Back</button>
-  Onzer
-</h1>
+<div *ngIf="playlistInfo" class="plst-header">
+  <div class="plst-header__cover">
+    <img [src]="playlistInfo.cover"/>
+  </div>
+  <div class="plst-header__detail">
+    <div class="plst-header__detail__title">{{playlistInfo.title}}</div>
+    <div class="plst-header__detail__author">{{playlistInfo.author}}</div>
+    <div class="plst-header__detail__duration">{{playlistInfo.duration | duration}}</div>
+  </div>
+</div>
