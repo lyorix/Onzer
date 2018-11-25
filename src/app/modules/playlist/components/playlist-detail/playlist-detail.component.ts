@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PlaylistInfo } from '../../model/playlist-info.model';
 
 @Component({
@@ -10,9 +10,16 @@ export class PlaylistDetailComponent implements OnInit {
 
   @Input() playlistInfo: PlaylistInfo;
 
+  limitMin = 0;
+  limitMax = 30;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onScrollDown(event: any) {
+    this.limitMax += 30;
   }
 
 }

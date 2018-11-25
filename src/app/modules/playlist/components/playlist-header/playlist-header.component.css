@@ -1,7 +1,7 @@
 .plst-header {
     display: grid;
-    grid-template-columns: 270px 1fr;
-    height: 280px;
+    grid-template-columns: 150px 1fr;
+    height: 150px;
     background-color: var(--white, white);
     color: var(--text-dark, black);
     box-shadow: var(--box-shadow);
@@ -9,8 +9,8 @@
 
 .plst-header__cover {
     margin: 10px 10px 10px 10px;
-    max-height: 250px;
-    max-width: 250px;
+    max-height: 120px;
+    max-width: 120px;
     box-shadow: var(--box-shadow);
 }
 

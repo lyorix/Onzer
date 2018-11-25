@@ -1,4 +1,7 @@
-<div class="plst-detail">
+<div class="plst-detail" 
+      infiniteScroll 
+      [scrollWindow]="false" 
+      (scrolled)="onScrollDown($event)">
   <div *ngIf="!playlistInfo">Loading...</div>
   <div *ngIf="playlistInfo">
     <div class="plst-detail__header">
@@ -7,7 +10,7 @@
       <div>DURATION</div>
     </div>
     <div class="plst-detail___tracks">
-      <div *ngFor="let track of playlistInfo.tracks;">
+      <div *ngFor="let track of playlistInfo.tracks | slice:limitMin:limitMax;">
         <ozr-playlist-detail-line [track]="track"></ozr-playlist-detail-line>
       </div>
     </div>

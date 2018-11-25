@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { PlaylistInformationDataService } from './services/playlist-information-data.service';
 import { TimeModule } from '../core/time/time.module';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [PlaylistHeaderComponent, PlaylistViewComponent, PlaylistDetailComponent, PlaylistDetailLineComponent],
@@ -17,7 +18,8 @@ import { TimeModule } from '../core/time/time.module';
     PlaylistRoutingModule, 
     HttpClientModule,
     FormsModule,
-    TimeModule
+    TimeModule,
+    InfiniteScrollModule
   ],
   providers: [
     PlaylistInformationDataService

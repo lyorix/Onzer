@@ -11,19 +11,27 @@ export class UserPlaylistsDataService {
 
   private static readonly USER_PLAYLISTS_URL: string = '/deezer/user/{userId}/playlists';
 
+  private cachedUserPlaylist: Array<Playlist>;
+
   constructor(private http: HttpClient) {
   }
 
   public getUserPlaylists(userId: number): Observable<Array<Playlist>> {
-      return this.http.get(UserPlaylistsDataService.USER_PLAYLISTS_URL.replace('{userId}', '' + userId))
-          .pipe(map((response: any) => response.data))
-          .pipe(map(result => this.mapToPlaylists(result)))
-          .pipe(catchError(this.handleError));
+      if (this.cachedUserPlaylist) {
+        return Observable.create((observer:any) => {
+            observer.next(this.cachedUserPlaylist)
+        });
+      }
+      else {
+        return this.http.get(UserPlaylistsDataService.USER_PLAYLISTS_URL.replace('{userId}', '' + userId))
+            .pipe(map(result => this.mapToPlaylists(result)))
+            .pipe(catchError(this.handleError));
+      }
   }
 
   private mapToPlaylists(playlistsData: any): Array<Playlist> {
       let playlists: Array<Playlist> = [];
-      for (let playlistData of playlistsData) {
+      for (let playlistData of playlistsData.data) {
           let playlist: Playlist = {
             id: playlistData.id,
             title : playlistData.title,
@@ -31,6 +39,7 @@ export class UserPlaylistsDataService {
           }
           playlists.push(playlist);
       }
+      this.cachedUserPlaylist = playlists;
       return playlists;
   }
 
