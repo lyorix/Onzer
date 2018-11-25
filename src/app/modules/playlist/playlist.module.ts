@@ -8,6 +8,7 @@ import { PlaylistRoutingModule } from './playlist-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { PlaylistInformationDataService } from './services/playlist-information-data.service';
+import { TimeModule } from '../core/time/time.module';
 
 @NgModule({
   declarations: [PlaylistHeaderComponent, PlaylistViewComponent, PlaylistDetailComponent, PlaylistDetailLineComponent],
@@ -15,7 +16,8 @@ import { PlaylistInformationDataService } from './services/playlist-information-
     CommonModule, 
     PlaylistRoutingModule, 
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    TimeModule
   ],
   providers: [
     PlaylistInformationDataService

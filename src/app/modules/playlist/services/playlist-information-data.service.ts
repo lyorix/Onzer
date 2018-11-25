@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { PlaylistInfo } from '../model/playlist-info.model';
+import { Track } from '../model/track.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,10 +24,21 @@ export class PlaylistInformationDataService {
   private mapToPlaylist(playlistData: any): PlaylistInfo {
       const playlist: PlaylistInfo = {
         title: playlistData.title,
-        duration: playlistData.duration,
+        duration: playlistData.duration * 1000,
         author: playlistData.creator.name,
         cover: playlistData.picture
       };
+      if (playlistData.tracks) {
+        playlist.tracks = new Array<Track>();
+        playlistData.tracks.data.forEach((element: any) => {
+          const track: Track = {
+            title: element.title,
+            duration: element.duration * 1000,
+            artist: element.artist.name
+          };
+          playlist.tracks.push(track);
+        });
+      }
       return playlist;
   }
 

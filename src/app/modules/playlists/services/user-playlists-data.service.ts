@@ -27,7 +27,7 @@ export class UserPlaylistsDataService {
           let playlist: Playlist = {
             id: playlistData.id,
             title : playlistData.title,
-            cover : playlistData.picture
+            cover : playlistData.picture_medium
           }
           playlists.push(playlist);
       }

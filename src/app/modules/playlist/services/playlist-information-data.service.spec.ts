@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PlaylistInformationService } from './playlist-information.service';
+import { PlaylistInformationService } from './playlist-information-data.service';
 
 describe('PlaylistInformationService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

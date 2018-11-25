@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+/*---------------------------------------------------------------------------------------
+    GLOBAL CSS VARIABLES
+---------------------------------------------------------------------------------------*/
+:root {
+    --primary: #1088da;
+    --primary-dark: #6095C6;
+    --secondary: #F20F64;
+    --grey-blue-dark: #7C8F9B;
+    --grey-blue-light: #E9EFF4;
+    --grey-dark: #AEB6BF;
+    --grey-medium: #98A4AF;
+    --grey-light: #F5F6F8;
+    --blue-dark: #151B26;
+    --text-dark: #242729;
+    --dark: #061F2D;
+    --danger: #FF1642;
+    --success: #4BE197;
+    --white: #FFFFFF;
+
+    --box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+}

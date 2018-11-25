@@ -1,2 +1,3 @@
 <ozr-playlist-header (backClicked)="openPlaylists()"></ozr-playlist-header>
-<ozr-playlist-detail></ozr-playlist-detail>
+<div *ngIf="!playlistInfo">Loading...</div>
+<ozr-playlist-detail *ngIf="playlistInfo && playlistInfo.tracks" [tracks]="playlistInfo.tracks"></ozr-playlist-detail>

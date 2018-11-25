@@ -1,7 +1,7 @@
 <div>
   <div *ngIf="!playlists">Loading...</div>
 
-  <div class="wrapper" *ngIf="playlists">
+  <div class="plsts-content___playlists" *ngIf="playlists">
     <div *ngFor="let playlist of playlists;">
         <ozr-playlist-card [playlist]="playlist" (click)="selectPlaylist(playlist)"></ozr-playlist-card>
     </div>
