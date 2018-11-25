@@ -1,11 +1,20 @@
 import {DurationService} from './duration.service';
 
 describe('DurationService', () => {
+
     let durationService: DurationService;
+
+    ///////////////////////////////////////
+    //    INITIALIZATION
+    ///////////////////////////////////////
 
     beforeEach(() => {
         durationService = new DurationService();
     });
+
+    ///////////////////////////////////////
+    //    TESTS
+    ///////////////////////////////////////
 
     it('should return 1 seconds duration', () => {
         const duration = durationService.formatDuration(1000);
@@ -36,4 +45,5 @@ describe('DurationService', () => {
         const duration = durationService.formatDuration(36610000);
         expect(duration).toEqual('10:10:10');
     });
+    
 });

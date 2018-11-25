@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { PlaylistInfo } from '../model/playlist-info.model';
 import { Track } from '../model/track.model';
@@ -52,7 +52,7 @@ export class PlaylistInformationDataService {
       let errMsg = (error.message) ? error.message :
           error.status ? `${error.status} - ${error.statusText}` : 'Server error';
       console.error(errMsg); // log to console instead
-      return Observable.throw(errMsg);
+      return throwError(errMsg);
   }
 
 }
