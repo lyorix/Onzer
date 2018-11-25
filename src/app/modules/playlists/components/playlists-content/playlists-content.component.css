@@ -9,3 +9,7 @@
     grid-gap: 15px;
     color: var(--test-dark, black);
 }
+
+.plsts-content__loading {
+    margin: 15px;
+}
