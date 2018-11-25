@@ -1,5 +1,7 @@
 .plst-detail {
-    margin: 15px;
+    height: calc(100% - 310px);
+    overflow-y: auto;
+    padding: 15px;
 }
 
 .plst-detail__header {
