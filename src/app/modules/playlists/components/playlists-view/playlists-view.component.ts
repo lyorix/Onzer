@@ -21,6 +21,14 @@ export class PlaylistsViewComponent implements OnInit {
     });
   }
 
+  ////////////////////////////////////
+  //    ACTIONS
+  ////////////////////////////////////
+
+  /**
+   * Opens a given playlist
+   * @param playlist - the playlist to open
+   */
   openPlaylist(playlist: Playlist) {
    this.router.navigate(['/playlist/' + playlist.id]);
   }

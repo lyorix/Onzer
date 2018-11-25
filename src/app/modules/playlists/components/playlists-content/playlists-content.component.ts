@@ -17,6 +17,14 @@ export class PlaylistsContentComponent implements OnInit {
   ngOnInit() {
   }
 
+  ////////////////////////////////////
+  //    ACTIONS
+  ////////////////////////////////////
+
+  /**
+   * Selects a given playlist
+   * @param playlist - the selected playlist
+   */
   selectPlaylist(playlist: Playlist) {
     this.playlistSelected.emit(playlist);
   }

@@ -10,16 +10,23 @@ export class PlaylistDetailComponent implements OnInit {
 
   @Input() playlistInfo: PlaylistInfo;
 
-  limitMin = 0;
-  limitMax = 30;
+  tracksLimitMin = 0;
+  tracksLimitMax = 30;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onScrollDown(event: any) {
-    this.limitMax += 30;
+  ////////////////////////////////////
+  //    ACTIONS
+  ////////////////////////////////////
+
+  /**
+   * Executes on playlist scroll down event
+   */
+  increaseTracksLimit(event: any) {
+    this.tracksLimitMax += 30;
   }
 
 }

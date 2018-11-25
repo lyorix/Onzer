@@ -15,8 +15,13 @@ export class PlaylistInformationDataService {
   constructor(private http: HttpClient) {
   }
 
+  /**
+   * Retrieves the information for a given playlist
+   * @param playlistId - the playlist identifier
+   */
   public getPlaylist(playlistId: number): Observable<PlaylistInfo> {
-      return this.http.get(PlaylistInformationDataService.PLAYLIST_INFO_URL.replace('{playlistId}', '' + playlistId))
+      return this.http.get(PlaylistInformationDataService.PLAYLIST_INFO_URL
+          .replace('{playlistId}', '' + playlistId))
           .pipe(map(result => this.mapToPlaylist(result)))
           .pipe(catchError(this.handleError));
   }
@@ -25,16 +30,16 @@ export class PlaylistInformationDataService {
       const playlist: PlaylistInfo = {
         title: playlistData.title,
         duration: playlistData.duration * 1000,
-        author: playlistData.creator.name,
+        author: playlistData.creator ? playlistData.creator.name : '',
         cover: playlistData.picture
       };
       if (playlistData.tracks) {
         playlist.tracks = new Array<Track>();
-        playlistData.tracks.data.forEach((element: any) => {
+        playlistData.tracks.data.forEach((trackData: any) => {
           const track: Track = {
-            title: element.title,
-            duration: element.duration * 1000,
-            artist: element.artist.name
+            title: trackData.title,
+            duration: trackData.duration * 1000,
+            artist: trackData.artist ? trackData.artist.name : ''
           };
           playlist.tracks.push(track);
         });
@@ -44,7 +49,6 @@ export class PlaylistInformationDataService {
 
   private handleError(error: any) {
       // In a real world app, we might use a remote logging infrastructure
-      // We'd also dig deeper into the error to get a better message
       let errMsg = (error.message) ? error.message :
           error.status ? `${error.status} - ${error.statusText}` : 'Server error';
       console.error(errMsg); // log to console instead

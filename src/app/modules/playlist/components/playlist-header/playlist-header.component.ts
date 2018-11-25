@@ -17,6 +17,13 @@ export class PlaylistHeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  ////////////////////////////////////
+  //    ACTIONS
+  ////////////////////////////////////
+
+  /**
+   * Performs back request
+   */
   back() {
     this.backClicked.emit();
   }

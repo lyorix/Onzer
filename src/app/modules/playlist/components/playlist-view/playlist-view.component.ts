@@ -16,13 +16,19 @@ export class PlaylistViewComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(map => {
-        console.log('route params: ' + JSON.stringify(map));
         this.playlistInfoDataService.getPlaylist(parseInt(map.get('id'))).subscribe((res) => {
           this.playlistInfo = res;
         });
     });
   }
 
+  ////////////////////////////////////
+  //    ACTIONS
+  ////////////////////////////////////
+
+  /**
+   * Opens the playlists screen
+   */
   openPlaylists() {
     this.router.navigate(['/playlists']);
    }

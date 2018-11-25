@@ -3,7 +3,7 @@
     overflow-y: auto;
 }
 
-.plsts-content___playlists {
+.plsts-content__playlists {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 15px;
