@@ -1,6 +1,7 @@
 # Onzer
 
 The deezer (almost) next generation user interface.
+
 This project is just a proof of concept, to integrate Angular 7 with the Deezer API.
 
 ## Setup
@@ -46,6 +47,8 @@ The project is divided in four modules:
 * **common**: This module contains all the onzer dedicated shared components and services.
 * **playlists**: This module is responsible for displaying all the user playlists.
 * **playlist**: This module is responsible for showing a given playlist.
+
+![](./documentation/architecture/diagrams/onzer-overview.component.png)
 
 ### Playlists
 

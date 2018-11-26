@@ -1,0 +1,29 @@
+.header {
+  display: grid;
+  height: 50px;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  background-color: var(--primary, grey);
+  color: var(--white, white);
+  box-shadow: var(--box-shadow);
+}
+
+.header__back {
+  padding: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.header__back__label {
+  padding-left: 5px;
+}
+
+.header__title {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}

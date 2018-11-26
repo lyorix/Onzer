@@ -1,6 +1,12 @@
 .plst-card {
-    border-radius: 5px;
-    padding: 20px;
-    font-size: 120%;
-    cursor: pointer;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-size: 120%;
+}
+
+.plst-card__cover {
+  border-radius: 5px;
+  cursor: pointer;
 }

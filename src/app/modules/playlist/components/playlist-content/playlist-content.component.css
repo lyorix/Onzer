@@ -1,0 +1,34 @@
+.plst-content {
+  margin-top: 10px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.plst-content__detail {
+  height: 100%;
+  margin: 0px 20px 0px 20px;
+}
+
+.plst-content__detail__loading {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.plst-content__detail__header {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+  grid-row-gap: 15px;
+  padding: 10px 0px 10px 0px;
+  font-weight: bold;
+  color: var(--primary, black);
+  border-bottom: 1px solid var(--grey-blue-light, grey);
+}
+
+.plst-content__detail__tracks {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  color: var(--text-dark, black);
+}

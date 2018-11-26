@@ -1,0 +1,9 @@
+.plst-view {
+  height: 100%;
+  display: grid;
+  grid-template-rows: max-content max-content 1fr;
+}
+
+.plst-view__content {
+  min-height: 0;
+}

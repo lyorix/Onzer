@@ -1,2 +1,5 @@
-<ozr-playlist-header [playlistInfo]="playlistInfo" (backClicked)="openPlaylists()"></ozr-playlist-header>
-<ozr-playlist-detail [playlistInfo]="playlistInfo"></ozr-playlist-detail>
+<div class="plst-view">
+  <ozr-header [backLabel]="'Playlists'" (back)="openPlaylists()"></ozr-header>
+  <ozr-playlist-header [minimal]="minimalHeader" [playlistInfo]="playlistInfo"></ozr-playlist-header>
+  <ozr-playlist-content [playlistInfo]="playlistInfo" (scrolled)="updatePlaylistHeader($event)" class="plst-view__content"></ozr-playlist-content>
+</div>

@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Playlist } from '../../model/playlist.model';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Playlist} from '../../model/playlist.model';
 
 @Component({
   selector: 'ozr-playlist-card',
@@ -10,9 +10,24 @@ export class PlaylistCardComponent implements OnInit {
 
   @Input() playlist: Playlist;
 
-  constructor() { }
+  @Output() playlistSelect = new EventEmitter<Playlist>();
+
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  ////////////////////////////////////
+  //    ACTIONS
+  ////////////////////////////////////
+
+  /**
+   * On playlist selection
+   * @param playlist - the selected playlist
+   */
+  onPlaylistSelect() {
+    this.playlistSelect.emit(this.playlist);
   }
 
 }

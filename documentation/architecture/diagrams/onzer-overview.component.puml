@@ -1,0 +1,22 @@
+@startuml
+
+package "app" as app {
+  [Router] as route #lightgreen
+  package "playlist" #yellow {
+  }
+  package "playlists" #yellow {
+  }
+  package "core" #lightblue {
+  }
+  package "common" as common #lightblue {
+  }
+}
+
+route .down.> playlist #green : /playlist/<id>
+route .down.> playlists #green : /playlists
+playlist .down.> core : <<imports>>
+playlists .down.> core : <<imports>>
+playlist .down.> common : <<imports>>
+playlists .down.> common : <<imports>>
+
+@enduml

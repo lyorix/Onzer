@@ -1,4 +1,4 @@
 <div class="plst-card">
-  <img [src]="playlist.cover"/>
+  <img [src]="playlist.cover" (click)="onPlaylistSelect()" class="plst-card__cover"/>
   <div>{{playlist.title}}</div>
 </div>

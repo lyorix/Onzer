@@ -1,10 +1,10 @@
-<div *ngIf="playlistInfo" class="plst-header">
-  <div class="plst-header__cover">
+<div *ngIf="playlistInfo" class="plst-header" [ngClass]="{'minimal': minimal}">
+  <div *ngIf="!minimal" class="plst-header__cover">
     <img [src]="playlistInfo.cover"/>
   </div>
   <div class="plst-header__detail">
     <div class="plst-header__detail__title">{{playlistInfo.title}}</div>
-    <div class="plst-header__detail__author">{{playlistInfo.author}}</div>
-    <div class="plst-header__detail__duration">{{playlistInfo.duration | duration}}</div>
+    <div *ngIf="!minimal" class="plst-header__detail__author">{{playlistInfo.author}}</div>
+    <div *ngIf="!minimal" class="plst-header__detail__duration">{{playlistInfo.duration | duration}}</div>
   </div>
 </div>

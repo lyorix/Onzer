@@ -1,35 +1,37 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { UserPlaylistsDataService } from './user-playlists-data.service';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {UserPlaylistsDataService} from './user-playlists-data.service';
+import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 
 describe('UserPlaylistsService', () => {
 
-  let service: UserPlaylistsDataService; 
+  let service: UserPlaylistsDataService;
   let httpMock: HttpTestingController;
 
   const mockedRequestURI = '/deezer/user/5/playlists';
-  const mockedPlaylists = [{
-    id: 1,
-    title: 'some_title',
-    picture_medium: 'some_picture'
-  },
-  {
-    id: 2,
-    title: 'some_other_title',
-    picture_medium: 'some_other_picture'
-  }];
+  const mockedPlaylists = [
+    {
+      id: 1,
+      title: 'some_title',
+      picture_medium: 'some_picture'
+    },
+    {
+      id: 2,
+      title: 'some_other_title',
+      picture_medium: 'some_other_picture'
+    }
+  ];
 
   ///////////////////////////////////////
   //    INITIALIZATION
   ///////////////////////////////////////
 
-  beforeEach(() => { 
-    TestBed.configureTestingModule({ 
-      imports: [ HttpClientTestingModule ], 
-      providers: [ UserPlaylistsDataService ] 
-    }); 
-    service = TestBed.get(UserPlaylistsDataService); 
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [UserPlaylistsDataService]
+    });
+    service = TestBed.get(UserPlaylistsDataService);
     httpMock = TestBed.get(HttpTestingController);
   });
 
@@ -41,8 +43,8 @@ describe('UserPlaylistsService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should return two playlists', (done) => { 
-    service.getUserPlaylists(5).subscribe((res: any) => { 
+  it('should return two playlists', (done) => {
+    service.getUserPlaylists(5).subscribe((res: any) => {
       expect(res.length).toBe(2);
       expect(res[0].id).toBe(1);
       expect(res[0].title).toBe('some_title');
@@ -52,34 +54,34 @@ describe('UserPlaylistsService', () => {
       expect(res[1].cover).toBe('some_other_picture');
       done();
     });
-    const request = httpMock.expectOne(mockedRequestURI); 
+    const request = httpMock.expectOne(mockedRequestURI);
     request.flush({
       data: mockedPlaylists
     });
-    httpMock.verify(); 
+    httpMock.verify();
   });
 
-  it('should return no playlists', (done) => { 
-    service.getUserPlaylists(5).subscribe((res: any) => { 
+  it('should return no playlist', (done) => {
+    service.getUserPlaylists(5).subscribe((res: any) => {
       expect(res.length).toBe(0);
       done();
     });
-    const request = httpMock.expectOne(mockedRequestURI); 
+    const request = httpMock.expectOne(mockedRequestURI);
     request.flush({
       data: []
     });
-    httpMock.verify(); 
+    httpMock.verify();
   });
 
-  it('should return error message when request failed', (done) => { 
+  it('should return error message when request failed', (done) => {
     service.getUserPlaylists(5).subscribe((res) => {
     }, (err) => {
       expect(err).toBeDefined();
       done();
     });
-    const request = httpMock.expectOne(mockedRequestURI); 
+    const request = httpMock.expectOne(mockedRequestURI);
     request.error(new ErrorEvent('error'));
-    httpMock.verify(); 
+    httpMock.verify();
   });
 
 });

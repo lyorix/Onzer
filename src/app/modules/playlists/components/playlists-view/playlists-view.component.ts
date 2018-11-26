@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Playlist } from '../../model/playlist.model';
-import { UserPlaylistsDataService } from '../../services/user-playlists-data.service';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Playlist} from '../../model/playlist.model';
+import {UserPlaylistsDataService} from '../../services/user-playlists-data.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'ozr-playlists-view',
@@ -10,13 +10,14 @@ import { Router } from '@angular/router';
 })
 export class PlaylistsViewComponent implements OnInit {
 
-  playlists : Array<Playlist>;
+  playlists: Array<Playlist>;
 
-  constructor(private userPlaylistsDataService : UserPlaylistsDataService,
-    private router: Router) { }
+  constructor(private userPlaylistsDataService: UserPlaylistsDataService,
+              private router: Router) {
+  }
 
   ngOnInit() {
-    this.userPlaylistsDataService.getUserPlaylists(5).subscribe((res) =>{
+    this.userPlaylistsDataService.getUserPlaylists(5).subscribe((res) => {
       this.playlists = res;
     });
   }
@@ -30,7 +31,7 @@ export class PlaylistsViewComponent implements OnInit {
    * @param playlist - the playlist to open
    */
   openPlaylist(playlist: Playlist) {
-   this.router.navigate(['/playlist/' + playlist.id]);
+    this.router.navigate(['/playlist/' + playlist.id]);
   }
 
 }

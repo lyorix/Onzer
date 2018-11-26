@@ -1,0 +1,23 @@
+<div class="plst-content"
+     infiniteScroll
+     [scrollWindow]="false"
+     (scrolled)="increaseTracksLimit($event)"
+     (scroll)="onScroll($event)">
+  <div class="plst-content__detail">
+    <div *ngIf="!playlistInfo" class="plst-content__detail__loading">
+      <lrx-loader></lrx-loader>
+    </div>
+    <div *ngIf="playlistInfo">
+      <div class="plst-content__detail__header">
+        <div>TITLE</div>
+        <div>ARTIST</div>
+        <div>DURATION</div>
+      </div>
+      <div class="plst-content__detail__tracks">
+        <div *ngFor="let track of playlistInfo.tracks | slice:tracksLimitMin:tracksLimitMax;">
+          <ozr-playlist-track-line [track]="track"></ozr-playlist-track-line>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

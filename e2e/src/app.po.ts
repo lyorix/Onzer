@@ -1,11 +1,20 @@
 import { browser, by, element } from 'protractor';
 
 export class AppPage {
-  navigateTo() {
-    return browser.get('/');
+  navigateTo(path) {
+    return browser.get(path);
   }
 
-  getTitleText() {
-    return element(by.css('app-root h1')).getText();
+  getPlaylistsViewCount() {
+    return element.all(by.css('.plsts-view')).count();
   }
+
+  getPlaylistViewCount() {
+    return element.all(by.css('.plst-view')).count();
+  }
+
+  getPlaylistCardCount() {
+    return element.all(by.css('.plst-card')).count();
+  }
+
 }
