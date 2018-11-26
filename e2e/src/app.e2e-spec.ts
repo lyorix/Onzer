@@ -16,10 +16,6 @@ describe('Application', () => {
   //    TESTS
   ///////////////////////////////////////
 
-  ///////////////////////////////////////
-  //    USER PLAYLISTS
-  ///////////////////////////////////////
-
   it('should display user playlists page', () => {
     page.navigateTo('/');
     expect(page.getPlaylistsViewCount()).toBe(1);
@@ -27,19 +23,25 @@ describe('Application', () => {
     expect(page.getPlaylistsViewCount()).toBe(1);
   });
 
-  ///////////////////////////////////////
-  //    PLAYLIST
-  ///////////////////////////////////////
+  it('should display playlist cards', () => {
+    page.navigateTo('/');
+    expect(page.getPlaylistCardCount()).toBe(25);
+  });
 
-  it('should display playlist page', () => {
-    page.navigateTo('/playlist/5');
+  it('should open playlist from card', () => {
+    page.navigateTo('/');
+    page.selectPlaylist();
     expect(page.getPlaylistViewCount()).toBe(1);
   });
 
-  it('should open selected playlist', () => {
-    page.navigateTo('/');
-    expect(page.getPlaylistsViewCount()).toBe(1);
-    page.navigateTo('/playlists');
+  it('should display playlist page from route', () => {
+    page.navigateTo('/playlist/1');
+    expect(page.getPlaylistViewCount()).toBe(1);
+  });
+
+  it('should open playlists from playlist back button', () => {
+    page.navigateTo('/playlist/1');
+    page.navigateBack();
     expect(page.getPlaylistsViewCount()).toBe(1);
   });
 
